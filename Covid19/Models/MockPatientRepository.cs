@@ -15,6 +15,9 @@ namespace Covid19.Models
             new Patient{ PatientId = 3, FirstName = "firstName3", LastName = "LastName3", PhoneNumber = 345678912, Mail = "axcgsada", VaccinatedInBiH = true},
             new Patient{ PatientId = 4, FirstName = "firstName4", LastName = "LastName4", PhoneNumber = 456789123, Mail = "vbcgsada", VaccinatedInBiH = false},
             new Patient{ PatientId = 5, FirstName = "firstName5", LastName = "LastName5", PhoneNumber = 567891234, Mail = "nbvgsada", VaccinatedInBiH = false},
+            new Patient{ PatientId = 6, FirstName = "firstName6", LastName = "LastName6", PhoneNumber = 678912345, Mail = "nbvgssda", VaccinatedInBiH = false},
+            new Patient{ PatientId = 7, FirstName = "firstName7", LastName = "LastName7", PhoneNumber = 789123456, Mail = "adaretzu", VaccinatedInBiH = true},
+
         };
 
 

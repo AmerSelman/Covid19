@@ -10,11 +10,11 @@ namespace Covid19.Models
 
         public string Name { get; set; }
 
-        public string FirstDate { get; set; }
+        /*public string FirstDate { get; set; }*/
 
         public string FirstSerialNumber { get; set; }
 
-        public string SecondDate { get; set; }
+        /*public string SecondDate { get; set; }*/
 
         public string SecondSerialNumber { get; set; }
 

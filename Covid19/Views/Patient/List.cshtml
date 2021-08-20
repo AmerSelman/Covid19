@@ -1,15 +1,37 @@
 ﻿@model PatientListViewModel
 
-@foreach (var patient in Model.Patients)
-{
-<ul class="list-group">
-    <li class="list-group-item active">Patient @patient.PatientId</li>
-    <li class="list-group-item">@patient.FirstName</li>
-    <li class="list-group-item">@patient.LastName</li>
-    <li class="list-group-item">@patient.PhoneNumber.ToString()</li>
-    <li class="list-group-item">@patient.Mail</li>
-</ul>
-<div>
+    <h1 class="patientH1">Pacjenti</h1>
+    <div class="editButtons">
+        <button type="button" class="btn btn-secondary">Dodaj</button>
+        <button type="button" class="btn btn-secondary">Obriši</button>
+        <button type="button" class="btn btn-secondary">Izmijeni</button>
+    </div>
 
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Čekirano</th>
+                        <th scope="col">Pacjenti</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var patient in Model.Patients)
+                    {
+                        <tr>
+                            <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1"></label>
+                                </div>
+                            </td>
+                            <td>@patient.FirstName @patient.LastName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-}

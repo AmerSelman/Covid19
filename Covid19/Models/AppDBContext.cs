@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Covid19.Models
 {
-    public class AppDBContext : DbContext
+    public class AppDbContext : DbContext
     {
-        AppDBContext(DbContextOptions<AppDBContext> options) : base(options)
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
 
         }
@@ -21,21 +21,45 @@ namespace Covid19.Models
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Vaccine>().HasData(new Vaccine { VaccineId = 1 });
+            //seed categories
+            modelBuilder.Entity<Vaccine>().HasData(new Vaccine { VaccineId = 1, Name = "AstraZeneca" });
+            modelBuilder.Entity<Vaccine>().HasData(new Vaccine { VaccineId = 2, Name = "Pfizer-BioNTech" });
+            modelBuilder.Entity<Vaccine>().HasData(new Vaccine { VaccineId = 3, Name = "Moderna" });
+
+            //seed pies
 
             modelBuilder.Entity<Patient>().HasData(new Patient
             {
                 PatientId = 1,
-                FirstName = "firstName1",
-                LastName = "lastName1",
-                PhoneNumber = 123456789,
-                Mail = "sad@gadada.com",
+                FirstName = "Omer",
+                LastName = "Hodžić",
+                PhoneNumber = 069874123144,
+                Mail = "omer.h@gmail.com",
                 VaccinatedInBiH = true,
-                
-
+                VaccineId = 1
             });
 
-        }
+            modelBuilder.Entity<Patient>().HasData(new Patient
+            {
+                PatientId = 2,
+                FirstName = "Omera",
+                LastName = "Hadžić",
+                PhoneNumber = 06987441321134,
+                Mail = "omera.h@gmail.com",
+                VaccinatedInBiH = true,
+                VaccineId = 2
+            });
 
+            modelBuilder.Entity<Patient>().HasData(new Patient
+            {
+                PatientId = 3,
+                FirstName = "Elvis",
+                LastName = "Džeko",
+                PhoneNumber = 061874123474,
+                Mail = "elvis.dž@gmail.com",
+                VaccinatedInBiH = false,
+                VaccineId = 3
+            });
+        }
     }
 }
