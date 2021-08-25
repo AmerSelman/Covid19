@@ -10,7 +10,9 @@ namespace Covid19.Models
         public IEnumerable<Vaccine> AllVaccines =>
             new List<Vaccine>
             {
-                new Vaccine{VaccineId = 1, Name = "Astrazeneca",FirstSerialNumber = "123456", SecondSerialNumber = "2456481"}
+                new Vaccine{VaccineId = 1, VaccineName = "Astrazeneca"},
+                new Vaccine{VaccineId = 2, VaccineName = "Pfizer-BioNTech"},
+                new Vaccine{VaccineId = 3, VaccineName = "Moderna"}
             };
 
     }

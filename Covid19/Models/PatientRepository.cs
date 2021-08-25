@@ -27,5 +27,16 @@ namespace Covid19.Models
         {
             return _appDbContext.Patients.FirstOrDefault(p => p.PatientId == patientId);
         }
+     
+        public void AddPatient(Patient patient)
+        {
+            _appDbContext.Patients.Add(patient);
+
+
+            _appDbContext.SaveChanges();
+
+            
+        }
+        
     }
 }

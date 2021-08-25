@@ -33,3 +33,7 @@ C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Covid19.pdb
 C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Covid19.genruntimeconfig.cache
 C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Covid19.csproj.CopyComplete
 C:\Users\Amer\source\repos\Covid19\Covid19\bin\Debug\netcoreapp2.2\libman.json
+C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Covid19.csproj.AssemblyReference.cache
+C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\PatientInfo.cshtml.g.cs
+C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\New.cshtml.g.cs
+C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\AddPatientComplete.cshtml.g.cs

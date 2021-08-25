@@ -27,6 +27,59 @@ namespace Covid19.Controllers
             return View(patientListViewModel);
         }
 
+        public IActionResult PatientInfo(int id)
+        {
+            var patient = _patientRepository.GetPatientById(id);
+
+            if(patient == null)
+            {
+                return NotFound();
+            }
+            return View(patient);
+        }
+
+        public IActionResult New()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult New(Patient patient)
+        {
+            if (ModelState.IsValid)
+            {
+                _patientRepository.AddPatient(patient);
+
+                return RedirectToAction("AddPatientComplete");
+            }
+            return View(patient);
+        }
+
+        public IActionResult AddPatientComplete()
+        {
+            ViewBag.AddPatientComplete = "Uspjesno";
+
+            return View();
+        }
+
+
+
+
+
+
+        public RedirectToActionResult AddVaccinetedPatient(Patient patient)
+        {
+            _patientRepository.AddPatient(patient);
+
+            return RedirectToAction("List");
+        }
         
+        public RedirectToActionResult RemovePatient(int patientId)
+        {
+            var selectedPatient = _patientRepository.AllPatients.FirstOrDefault(p => p.PatientId == patientId);
+
+            return RedirectToAction("List");
+        }
+
     }
 }

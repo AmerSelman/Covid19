@@ -40,9 +40,10 @@ namespace Covid19
             services.AddScoped<IPatientRepository, MockPatientRepository>();
             services.AddScoped<IVaccineRepository, MockVaccineRepository>();
             */
+            
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IVaccineRepository, VaccineRepository>();
-
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -63,6 +64,7 @@ namespace Covid19
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
 
             app.UseMvc(routes =>
             {

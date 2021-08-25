@@ -9,6 +9,10 @@
     {
       "library": "jquery@3.6.0",
       "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "html2pdf.js@0.9.3",
+      "destination": "wwwroot/lib/html2pdf.js/"
     }
   ]
 }
