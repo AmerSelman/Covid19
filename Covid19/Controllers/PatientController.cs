@@ -5,6 +5,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Covid19.Models;
 using Covid19.ViewModels;
+using Microsoft.AspNetCore.Mvc.ViewEngines;
+using System.IO;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using SelectPdf;
+using Rotativa.AspNetCore;
 
 namespace Covid19.Controllers
 {
@@ -12,11 +19,12 @@ namespace Covid19.Controllers
     {
         private readonly IPatientRepository _patientRepository;
         private readonly IVaccineRepository _vaccineRepository;
-
         public PatientController(IPatientRepository patientRepository, IVaccineRepository vaccineRepository){
             _patientRepository = patientRepository;
             _vaccineRepository = vaccineRepository;
         }
+
+
 
         public IActionResult List()
         {
@@ -35,7 +43,9 @@ namespace Covid19.Controllers
             {
                 return NotFound();
             }
-            return View(patient);
+            //return View(patient);
+
+            return new ViewAsPdf(patient);
         }
 
         public IActionResult New()
@@ -46,13 +56,26 @@ namespace Covid19.Controllers
         [HttpPost]
         public IActionResult New(Patient patient)
         {
+            Patient newPatient = new Patient();
+            newPatient.FirstName = patient.FirstName;
+            newPatient.LastName = patient.LastName;
+            newPatient.JMBG = patient.JMBG;
+            newPatient.FirstDateV = patient.FirstDateV;
+            newPatient.FirstSerialNumber = patient.FirstSerialNumber;
+            newPatient.SecondDateV = patient.SecondDateV;
+            newPatient.SecondSerialNumber = patient.SecondSerialNumber;
+            newPatient.PhoneNumber = patient.PhoneNumber;
+            newPatient.Mail = patient.Mail;
+
+
             if (ModelState.IsValid)
             {
-                _patientRepository.AddPatient(patient);
+                _patientRepository.AddPatient(newPatient);
 
                 return RedirectToAction("AddPatientComplete");
             }
-            return View(patient);
+            return View(newPatient);
+            //return View(patient);
         }
 
         public IActionResult AddPatientComplete()
@@ -61,11 +84,6 @@ namespace Covid19.Controllers
 
             return View();
         }
-
-
-
-
-
 
         public RedirectToActionResult AddVaccinetedPatient(Patient patient)
         {

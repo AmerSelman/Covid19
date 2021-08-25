@@ -14,6 +14,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="rotativa.AspNetCore" Version="1.0.6" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="21.1.0" />
   </ItemGroup>
 
 </Project>

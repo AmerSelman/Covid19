@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Rotativa.AspNetCore;
 
 namespace Covid19
 {
@@ -72,6 +73,7 @@ namespace Covid19
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            RotativaConfiguration.Setup(env);
         }
     }
 }
