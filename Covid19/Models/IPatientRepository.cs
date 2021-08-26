@@ -12,5 +12,9 @@ namespace Covid19.Models
         Patient GetPatientById(int patientId);
 
         void AddPatient(Patient patient);
+
+        bool RemovePatient(int id);
+
+        void EditPatient(Patient patient);
     }
 }

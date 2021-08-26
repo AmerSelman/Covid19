@@ -1,70 +1,76 @@
 ﻿@model Patient
 
-<div id="DivToPrint" runat="server">
-    <div>
-        <table class="table table-striped">
-            <tbody>
-                <tr>
-                    <th scope="row">JMBG</th>
-                    <td>@Model.JMBG</td>
-                </tr>
-                <tr>
-                    <th scope="row">Ime</th>
-                    <td>@Model.FirstName</td>
-                </tr>
-                <tr>
-                    <th scope="row">Prezime</th>
-                    <td>@Model.LastName</td>
-                </tr>
-                <tr>
-                    <th scope="row">Broj telefona</th>
-                    <td>@Model.PhoneNumber</td>
-                </tr>
-                <tr>
-                    <th scope="row">Email adresa</th>
-                    <td>@Model.Mail</td>
-                </tr>
-                <tr>
-                    <th scope="row">Vakcina</th>
-                    <td>@Model.VaccineId</td>
-                </tr>
-
-                <tr>
-                    <th scope="row">Datum prvog vakcinisanja</th>
-                    <td>@Model.FirstDateV</td>
-                </tr>
-                <tr>
-                    <th scope="row">Broj serije prve doze</th>
-                    <td>@Model.FirstSerialNumber</td>
-                </tr>
-                <tr>
-                    <th scope="row">Datum drugog vakcinisanja</th>
-                    <td>@Model.SecondDateV</td>
-                </tr>
-                <tr>
-                    <th scope="row">Broj serije druge doze</th>
-                    <td>@Model.SecondSerialNumber</td>
-                </tr>
-
-            </tbody>
-        </table>
+    <div id="DivToPrint" runat="server">
+        <div>
+            <table class="table table-striped">
+                <tbody>
+                    <tr>
+                        <th scope="row">JMBG</th>
+                        <td>@Model.JMBG</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ime</th>
+                        <td>@Model.FirstName</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Prezime</th>
+                        <td>@Model.LastName</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Broj telefona</th>
+                        <td>@Model.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email adresa</th>
+                        <td>@Model.Mail</td>
+                    </tr>
+                    <tr>
+                        <th>Vacina</th>
+                        <td>
+                            <select asp-for="VaccineId" name="vaccineId">
+                                <option value=1>AstraZeneca</option>
+                                <option value=2>Pfizer-BioNTech</option>
+                                <option value=3>Moderna</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Datum prvog vakcinisanja</th>
+                        <td>@Model.FirstDateV</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Broj serije prve doze</th>
+                        <td>@Model.FirstSerialNumber</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Datum drugog vakcinisanja</th>
+                        <td>@Model.SecondDateV</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Broj serije druge doze</th>
+                        <td>@Model.SecondSerialNumber</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
 <div>
     <a asp-action="List">Nazad</a>
 </div>
+
+
 @*@section scripts {
-    <script>
-        $("#printPDF").click(function () {
-            var element = document.getElementById("patientDiv");
+        <script>
+            $("#printPDF").click(function () {
+                var element = document.getElementById("patientDiv");
 
 
-            html12pdf().from(element).set({
-                margin: [30, 10, 5, 10],
-                pagebreak: { avoid: "tr" },
-                jsPDF: { orientation: "landscape", unit: "pt", format: "letter", compressPDF: true }
-            }).save()
-        });
-    </script>
+                html12pdf().from(element).set({
+                    margin: [30, 10, 5, 10],
+                    pagebreak: { avoid: "tr" },
+                    jsPDF: { orientation: "landscape", unit: "pt", format: "letter", compressPDF: true }
+                }).save()
+            });
+        </script>
 
-}*@
+    }*@

@@ -28,7 +28,12 @@ namespace Covid19.Models
             return _appDbContext.Patients.FirstOrDefault(p => p.PatientId == patientId);
         }
 
+        public void EditPatient(Patient patient)
+        {
+            _appDbContext.Patients.Add(patient);
 
+            _appDbContext.SaveChanges();
+        }
 
         public void AddPatient(Patient patient)
         {
@@ -37,5 +42,16 @@ namespace Covid19.Models
             _appDbContext.SaveChanges();
         }
 
+       public bool RemovePatient(int id)
+        {
+            Patient patient = _appDbContext.Patients.Find(id);
+            
+
+            _appDbContext.Patients.Remove(patient);
+
+            _appDbContext.SaveChanges();
+
+            return true;
+        }
     }
 }

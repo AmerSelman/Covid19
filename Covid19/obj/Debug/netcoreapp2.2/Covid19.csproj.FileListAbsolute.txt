@@ -38,3 +38,4 @@ C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\P
 C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\New.cshtml.g.cs
 C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\AddPatientComplete.cshtml.g.cs
 C:\Users\Amer\source\repos\Covid19\Covid19\bin\Debug\netcoreapp2.2\Select.Html.dep
+C:\Users\Amer\source\repos\Covid19\Covid19\obj\Debug\netcoreapp2.2\Razor\Views\Patient\Edit.cshtml.g.cs

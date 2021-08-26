@@ -39,6 +39,7 @@ namespace Covid19.Controllers
         {
             var patient = _patientRepository.GetPatientById(id);
 
+
             if(patient == null)
             {
                 return NotFound();
@@ -46,6 +47,14 @@ namespace Covid19.Controllers
             //return View(patient);
 
             return new ViewAsPdf(patient);
+        }
+
+        public IActionResult Remove(int id)
+        {
+
+            _patientRepository.RemovePatient(id);
+
+            return RedirectToAction("List");
         }
 
         public IActionResult New()
@@ -66,6 +75,7 @@ namespace Covid19.Controllers
             newPatient.SecondSerialNumber = patient.SecondSerialNumber;
             newPatient.PhoneNumber = patient.PhoneNumber;
             newPatient.Mail = patient.Mail;
+            newPatient.VaccineId = patient.VaccineId;
 
 
             if (ModelState.IsValid)
@@ -77,6 +87,33 @@ namespace Covid19.Controllers
             return View(newPatient);
             //return View(patient);
         }
+
+
+        //public IActionResult Edit(Patient patient)
+        //{
+        //    var editPatient = _patientRepository.GetPatientById(patient.PatientId);
+
+
+
+        //    editPatient.FirstName = patient.FirstName;
+        //    editPatient.LastName = patient.LastName;
+        //    editPatient.JMBG = patient.JMBG;
+        //    editPatient.FirstDateV = patient.FirstDateV;
+        //    editPatient.FirstSerialNumber = patient.FirstSerialNumber;
+        //    editPatient.SecondDateV = patient.SecondDateV;
+        //    editPatient.SecondSerialNumber = patient.SecondSerialNumber;
+        //    editPatient.PhoneNumber = patient.PhoneNumber;
+        //    editPatient.Mail = patient.Mail;
+        //    editPatient.VaccineId = patient.VaccineId;
+        //    if (ModelState.IsValid)
+        //    {
+        //        _patientRepository.EditPatient(editPatient);
+
+        //        return RedirectToAction("AddPatientComplete");
+        //    }
+        //    return View(editPatient);
+
+        //}
 
         public IActionResult AddPatientComplete()
         {
@@ -91,13 +128,16 @@ namespace Covid19.Controllers
 
             return RedirectToAction("List");
         }
+
         
-        public RedirectToActionResult RemovePatient(int patientId)
-        {
-            var selectedPatient = _patientRepository.AllPatients.FirstOrDefault(p => p.PatientId == patientId);
+        
+        
+        
+        //public IActionResult Edit(int id)
+        //{
+        //    var patient = _patientRepository.GetPatientById(id);
 
-            return RedirectToAction("List");
-        }
-
+        //    return View(patient);
+        //}
     }
 }

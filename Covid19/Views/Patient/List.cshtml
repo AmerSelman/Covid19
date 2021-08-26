@@ -1,11 +1,9 @@
 ﻿@model PatientListViewModel
 
-    <h1 class="patientH1">Pacjenti</h1>
-    <div class="editButtons">
-        <button type="button" class="btn btn-secondary">Dodaj</button>
-        <button type="button" class="btn btn-secondary">Obriši</button>
-        <button type="button" class="btn btn-secondary">Izmijeni</button>
-    </div>
+<h1 class="patientH1">Pacijenti</h1>
+<div class="editButtons">
+    <a class="btn btn-secondary" asp-controller="Patient" asp-action="New">Dodati novog pacijenta</a>
+</div>
 
 <div class="container">
     <div class="row">
@@ -13,7 +11,7 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Čekirano</th>
+                        @*<th scope="col">Čekirano</th>*@
                         <th scope="col">Pacjenti</th>
                     </tr>
                 </thead>
@@ -21,17 +19,23 @@
                     @foreach (var patient in Model.Patients)
                     {
                         <tr>
-                            <td>
+                            @*<td>
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1"></label>
                                 </div>
-                            </td>
+                            </td>*@
                             <td>@patient.FirstName @patient.LastName</td>
                             <td>
                                 <div class="text-center">
                                     <a class="btn btn-secondary" asp-controller="Patient" asp-action="PatientInfo" asp-route-id="@patient.PatientId">
                                         Informacije
+                                    </a>
+                                    <a class="btn btn-secondary" asp-controller="Patient" asp-action="Remove" asp-route-id="@patient.PatientId">
+                                        Obriši
+                                    </a>
+                                    <a class="btn btn-secondary" asp-controller="Patient" asp-action="Edit" asp-route-id="@patient.PatientId">
+                                        Uredi
                                     </a>
                                 </div>
                             </td>
@@ -43,6 +47,6 @@
     </div>
 </div>
 
-<div class="text-center">
-    <a class="btn btn-primary" asp-controller="Patient" asp-action="New">Dodati novog pacjenta</a>
-</div>
+@*<div class="text-center">
+        <a class="btn btn-primary" asp-controller="Patient" asp-action="New">Dodati novog pacijenta</a>
+    </div>*@

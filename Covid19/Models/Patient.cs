@@ -79,23 +79,5 @@ namespace Covid19.Models
 
         public Vaccine Vaccine { get; set; }
 
-        
-        //public void AddPatient(Patient patient)
-        //{
-        
-        //    FirstName = patient.FirstName;
-        //    LastName = patient.LastName;
-        //    JMBG = patient.JMBG;
-        //    PhoneNumber = patient.PhoneNumber;
-        //    Mail = patient.Mail;
-        //    FirstDateV = patient.FirstDateV;
-        //    SecondDateV = patient.SecondDateV;
-        //    FirstSerialNumber = patient.FirstSerialNumber;
-        //    SecondSerialNumber = patient.SecondSerialNumber;
-        //    VaccinatedInBiH = patient.VaccinatedInBiH;
-        //    VaccineId = patient.VaccineId;
-
-        //    _appDbContext.SaveChanges();
-        //}
     }
 }

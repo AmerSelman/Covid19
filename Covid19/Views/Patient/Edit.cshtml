@@ -1,9 +1,10 @@
 ﻿@model Patient
 
-<form asp-action="New" method="post" class="form-horizontal" role="form">
+<form asp-action="Edit" method="post" class="form-horizontal" role="form">
 
     <div asp-validation-summary="All" class="text-danger"></div>
-
+    
+    <input hidden asp-for="PatientId" />
 
     <div class="form-group">
         <label asp-for="FirstName" class="col-md-2 control-label"></label>
@@ -97,9 +98,12 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-5">
-            <input type="submit" class="btn btn-primary" value="Dodaj pacijenta" />
+            <input type="submit" class="btn btn-primary" value="Sacuvaj" />
         </div>
     </div>
+
+
+
 </form>
 
 <div>
